@@ -17,8 +17,7 @@ const PATH = process.env.PATH;
  */
 function createProcess(processPath, args = [], env = null) {
     // Ensure that path exists
-    console.log(processPath);
-    console.log(existsSync(processPath));
+    
     if (!processPath || !existsSync(processPath)) {
         throw new Error('Invalid process path');
     }
