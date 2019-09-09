@@ -51,7 +51,7 @@ export async function createProject(options) {
    await access(templateDir, fs.constants.R_OK);
  } catch (err) {
     printConsoleOutput(uxcmessage.errors.invalid_template, 
-    uxcmessage.type.error, 
+    uxcmessage.type.log, 
     chalk.red.bold(uxcmessage.type.ERROR));
 
     process.exit(1);

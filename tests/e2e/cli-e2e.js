@@ -3,19 +3,11 @@ import cmd, {DOWN, ENTER} from '../util/cmd';
 import * as fs from '../util/fs';
 import * as uxcmessage from '../../src/message';
 
-let cleanUpFiles = async (fileName) => {
-    if(fs.fileExists(fileName)){
-        await fs.deleteFile(fileName);
-    }
-}
 
 describe('Run the actual commands on the command prompt', () => {
     
       afterEach( () => {
-        cleanUpFiles('./theme.css');
-        cleanUpFiles('./theme.scss');
-        cleanUpFiles('./UXC-Commands.MD');
-        cleanUpFiles('./uxc.config.js');
+        fs.cleanUpFiles(['./theme.css','./theme.scss','./UXC-Commands.MD','./uxc.config.js']);
         
       });
   it('should raise error if invalid option is passed', async () => {

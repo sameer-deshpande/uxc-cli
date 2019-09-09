@@ -5,7 +5,6 @@ import { createProject, printConsoleOutput } from './main';
 import * as uxcmessage from './message';
 
 function parseArgumentsIntoOptions(rawArgs) {
-
     const args = {
         'help': rawArgs.includes('--help') || rawArgs.includes('-h'),
         'yes': rawArgs.includes('--yes') || rawArgs.includes('-y'),
@@ -21,6 +20,7 @@ function parseArgumentsIntoOptions(rawArgs) {
 
 async function promptForMissingOptions(options) {
     const defaultTemplate = uxcmessage.template.stylesheet.SCSS;
+    
     if (options.skipPrompts) {
         return {
           ...options,
@@ -61,7 +61,6 @@ export async function cli(args) {
     let options = null;
     try{
         options = parseArgumentsIntoOptions(args);
-        
         if(isInvalidInput(options)){
             printConsoleOutput(uxcmessage.errors.invalid_argument_passed, 
                 uxcmessage.type.log,

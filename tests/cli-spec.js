@@ -42,7 +42,13 @@ describe('cli', () => {
     });
     it('calling "init" should call "createProject"',  async() => {  
         await cli(['init']);
+        expect(inquirer.prompt).to.be.called;
         let options = await inquirer.prompt();
         expect(main.createProject).to.be.calledWith(options);
+    });
+    it('calling "init --yes" should avoid inquirer call and call "createProject" directly',  async() => {  
+        await cli(['init', '--yes']);
+        expect(inquirer.prompt).to.not.be.called;
+        expect(main.createProject).to.be.calledWith({init: true, manual: false, skipPrompts: true,template: 'SCSS'});
     });
 })
