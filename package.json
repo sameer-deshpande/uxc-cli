@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --require @babel/register 'tests/*-spec.js'",
     "e2e": "mocha --require @babel/register tests/e2e/cli-e2e.js",
-    "coverage": "nyc --reporter=html npm run test"
+    "coverage": "nyc --reporter=html npm run test",
+    "code-quality": "eslint ./src/*.js && eslint ./tests/*.js"
   },
   "bin": {
     "@samrd/uxc": "bin/uxc",
@@ -45,6 +46,7 @@
     "bluebird": "^3.5.5",
     "chai": "^4.2.0",
     "concat-stream": "^2.0.0",
+    "eslint": "^6.3.0",
     "fs-extra": "^8.1.0",
     "jasmine": "^3.4.0",
     "mocha": "^6.2.0",

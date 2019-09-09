@@ -59,28 +59,21 @@ function showManual(options){
 
 export async function cli(args) {
     let options = null;
-    try{
-        options = parseArgumentsIntoOptions(args);
-        if(isInvalidInput(options)){
-            printConsoleOutput(uxcmessage.errors.invalid_argument_passed, 
-                uxcmessage.type.log,
-                chalk.red.bold('ERROR'));
+    options = parseArgumentsIntoOptions(args);
+    if(isInvalidInput(options)){
+        printConsoleOutput(uxcmessage.errors.invalid_argument_passed, 
+            uxcmessage.type.log,
+            chalk.red.bold('ERROR'));
+    }
+    else{
+        if(options.init){
+            options = await promptForMissingOptions(options);
+            await createProject(options);
+        }           
+        else{ 
+            options.manual = true;          
+            showManual(options);
         }
-        else{
-            if(options.init){
-                options = await promptForMissingOptions(options);
-                await createProject(options);
-            }           
-            else{ 
-                options.manual = true;          
-                showManual(options);
-            }
-        }
-        
-        
-    }catch(err){
-        throw err;
-
     }
     
 }
