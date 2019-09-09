@@ -1,10 +1,10 @@
 {
   "name": "@samrd/uxc-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --require @babel/register tests/cli-spec.js",
+    "test": "mocha --require @babel/register 'tests/*spec.js'",
     "e2e": "mocha --require @babel/register tests/e2e/cli-e2e.js"
   },
   "bin": {
@@ -32,10 +32,13 @@
     "@babel/register": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "arg": "^4.1.1",
+    "bdd-stdin": "^0.2.0",
+    "bluebird": "^3.5.5",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "concat-stream": "^2.0.0",
     "esm": "^3.2.25",
+    "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
     "jasmine": "^3.4.0",
     "listr": "^0.14.3",

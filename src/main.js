@@ -4,7 +4,7 @@ import ncp from 'ncp';
 import path from 'path';
 import { promisify } from 'util';
 import Listr from 'listr';
-import { projectInstall } from 'pkg-install';
+
 import * as uxcmessage from './message';
 
 const access = promisify(fs.access);

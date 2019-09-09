@@ -38,6 +38,7 @@ async function promptForMissingOptions(options) {
       });
     }
     const answers = await inquirer.prompt(questions);
+
     return {
       ...options,
       template: options.template || answers.template
